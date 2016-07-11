@@ -29,14 +29,19 @@ export default function (listEl) {
 
   let oldestPerson = people[0];
 
-  const addPersonItemToList = (person) => {
+  const renderPersonItem = (person) => {
     const item = new PersonItem(person);
     item.render();
 
-    listEl.appendChild(item.element);
+    return item;
   };
 
-  people.forEach(addPersonItemToList);
+  const putInList = (personItem) => {
+    listEl.appendChild(personItem.element);
+  };
+
+  people.map(renderPersonItem)
+    .forEach(putInList);
 
   function getAge(person) {
     return person.age;
