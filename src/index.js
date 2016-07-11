@@ -29,12 +29,14 @@ export default function (listEl) {
 
   let oldestPerson = people[0];
 
-  for (let i = 0; i < people.length; i++) {
-    const item = new PersonItem(people[i]);
+  const addPersonItemToList = (person) => {
+    const item = new PersonItem(person);
     item.render();
 
     listEl.appendChild(item.element);
-  }
+  };
+
+  people.forEach(addPersonItemToList);
 
   // Loop through our people
   for (let i = 0; i < people.length; i++) {
@@ -44,7 +46,7 @@ export default function (listEl) {
       oldestPerson = people[i];
     }
 
-    console.log('i: ', i, 'oldest: ', oldestPerson);
+    // console.log('i: ', i, 'oldest: ', oldestPerson);
   }
 
   // Fill in h2 with the oldest person's name!
