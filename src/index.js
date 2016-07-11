@@ -63,5 +63,12 @@ export default function (listEl) {
   const elm = document.querySelector('h2');
   elm.innerText = oldestPerson.name;
 
-  console.log(JSON.stringify(people, null, 2));
+  function mapOlder(snowball, current) {
+    return snowball.concat([{
+      name: current.name,
+      age: current.age + 1,
+    }]);
+  }
+
+  console.log('next year', people.reduce(mapOlder, []));
 }
