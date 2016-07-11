@@ -1,4 +1,6 @@
-export default function() {
+import PersonItem from 'create-person-element';
+
+export default function (listEl) {
   const people = [
     {
       name: 'Carmine Braun',
@@ -26,6 +28,13 @@ export default function() {
   // Find the oldest object in "people" and put the name into the "h2" element on the page
 
   let oldestPerson = people[0];
+
+  for (let i = 0; i < people.length; i++) {
+    const item = new PersonItem(people[i]);
+    item.render();
+
+    listEl.appendChild(item.element);
+  }
 
   // Loop through our people
   for (let i = 0; i < people.length; i++) {

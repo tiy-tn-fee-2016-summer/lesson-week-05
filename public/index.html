@@ -6,13 +6,16 @@
   <link rel="stylesheet" href="/app.css">
 </head>
 <body>
+  <h2>Fill me in...</h2>
+  <person-list></person-list>
 
   <script src="/vendor.js" charset="utf-8"></script>
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
     var start = require('index');
-    start();
+    var list = document.querySelector('person-list');
+    start(list);
   </script>
 </body>
 </html>
