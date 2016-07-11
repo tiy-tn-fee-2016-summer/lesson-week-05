@@ -63,12 +63,17 @@ export default function (listEl) {
   const elm = document.querySelector('h2');
   elm.innerText = oldestPerson.name;
 
+  function olderPerson(person) {
+    return {
+      name: person.name,
+      age: person.age + 1,
+    };
+  }
+
   function mapOlder(snowball, current) {
-    return snowball.concat([{
-      name: current.name,
-      age: current.age + 1,
-    }]);
+    return snowball.concat([olderPerson(current)]);
   }
 
   console.log('next year', people.reduce(mapOlder, []));
+  console.log('next year but map', people.map(olderPerson));
 }
