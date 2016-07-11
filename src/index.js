@@ -38,6 +38,14 @@ export default function (listEl) {
 
   people.forEach(addPersonItemToList);
 
+  function getAge(person) {
+    return person.age;
+  }
+
+  const onlyAges = people.map(getAge);
+
+  console.log(onlyAges);
+
   // Loop through our people
   for (let i = 0; i < people.length; i++) {
     // Check to see if the current looped person is older than the oldest person so far
