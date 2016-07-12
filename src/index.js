@@ -19,7 +19,10 @@ export default class App {
           // Put the PokeCard where the user can see it...
           this.appElement.querySelector('.pokemon-list').appendChild(card.element);
 
-          // Tell the PokeCard to fill in...
+          // Tell the PokeCard to get some data!
+          card.getData()
+            // Tell the PokeCard to fill in... AFTER the data loads
+            .then(() => card.render());
         });
       });
   }

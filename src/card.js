@@ -1,21 +1,51 @@
 export default class PokeCard {
-  constructor() {
+  constructor(name, url) {
+    this.url = url;
+    this.name = name;
+
     this.element = document.createElement('div');
     this.element.classList.add('pokemon-list__item');
     this.element.innerHTML = `
       <figure class="pokemon-card">
         <div class="pic-frame">
-          <img src="http://pokeapi.co/media/sprites/pokemon/shiny/1.png" alt="" class="pic-frame__pic">
+          <img src="" alt="" class="pic-frame__pic">
         </div>
-        <h3 class="pokemon-card__name">Bulbasaur</h3>
+        <h3 class="pokemon-card__name"></h3>
       </figure>
       <div class="pokemon-overlay">
         <div class="pokemon-overlay__card">
-          <ul class="poke-stats">
-            <li class="poke-stats__item"><strong>Attack:</strong> 20</li>
-            <li class="poke-stats__item"><strong>Defense:</strong> 15</li>
-          </ul>
+          <ul class="poke-stats"></ul>
         </div>
       </div>`;
+
+    this.selectors = {
+      name: this.element.querySelector('.pokemon-card__name'),
+      img: this.element.querySelector('.pic-frame__pic'),
+      stats: this.element.querySelector('.poke-stats'),
+    };
+  }
+
+  getData() {
+    return fetch(this.url)
+      .then((res) => res.json())
+      .then((data) => {
+        this.data = data;
+      });
+  }
+
+  render() {
+    this.selectors.name.innerText = this.data.name;
+    this.selectors.img.src = this.data.sprites.front_default;
+
+    this.data.stats.forEach((stat) => {
+      const name = stat.stat.name;
+      const value = stat.base_stat;
+
+      const newListItem = document.createElement('li');
+      newListItem.classList.add('poke-stats__item');
+      newListItem.innerHTML = `<strong>${name}:</strong> ${value}`;
+
+      this.selectors.stats.appendChild(newListItem);
+    });
   }
 }
