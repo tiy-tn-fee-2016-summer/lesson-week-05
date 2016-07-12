@@ -53,14 +53,11 @@
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
+    var appElement = document.querySelector('.app__main');
+    var App = require('index');
 
-    const list = document.querySelector('.pokemon-list');
-    const item = list.children[0];
-
-    for (var i = 0; i < 20; i++) {
-      const clone = item.cloneNode(true);
-      list.insertBefore(clone, item);
-    }
+    var appyMcAppFace = new App(appElement);
+    appyMcAppFace.start();
   </script>
 </body>
 </html>
