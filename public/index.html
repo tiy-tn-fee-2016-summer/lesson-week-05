@@ -53,11 +53,13 @@
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
-    var appElement = document.querySelector('.app__main');
-    var App = require('index');
+    (function() {
+      var appElement = document.querySelector('.app__main');
+      var App = require('index');
 
-    var appyMcAppFace = new App(appElement);
-    appyMcAppFace.start();
+      var appyMcAppFace = new App(appElement);
+      appyMcAppFace.start();
+    })();
   </script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+import PokeCard from 'card';
+
 export default class App {
   constructor(appElement) {
     this.appElement = appElement;
@@ -11,7 +13,13 @@ export default class App {
       .then((data) => {
         // What should we do with dez Pokemon?
         data.results.forEach((pokemon) => {
-          console.log(pokemon);
+          // Make a new PokeCard
+          const card = new PokeCard(pokemon.name, pokemon.url);
+
+          // Put the PokeCard where the user can see it...
+          this.appElement.querySelector('.pokemon-list').appendChild(card.element);
+
+          // Tell the PokeCard to fill in...
         });
       });
   }
