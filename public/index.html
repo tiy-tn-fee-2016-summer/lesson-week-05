@@ -7,10 +7,60 @@
 </head>
 <body>
 
+  <div class="app">
+    <nav class="app__nav">
+      <div class="container">
+        <h1>Pokemon to take over ze Gym!</h1>
+      </div>
+    </nav>
+
+    <div class="app__main">
+      <div class="container">
+        <h2>Grass Pokemon</h2>
+
+        <div class="pokemon-list">
+          <div class="pokemon-list__item">
+            <figure class="pokemon-card">
+              <div class="pic-frame">
+                <img src="http://pokeapi.co/media/sprites/pokemon/shiny/1.png" alt="" class="pic-frame__pic">
+              </div>
+              <h3 class="pokemon-card__name">Bulbasaur</h3>
+            </figure>
+            <div class="pokemon-overlay">
+              <div class="pokemon-overlay__card">
+                <ul class="poke-stats">
+                  <li class="poke-stats__item"><strong>Attack:</strong> 20</li>
+                  <li class="poke-stats__item"><strong>Defense:</strong> 15</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="app__footer">
+      <div class="container">
+        <ul class="footer-list">
+          <li class="footer-list__item">Copyright 2016</li>
+          <li class="footer-list__item">TIY</li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
   <script src="/vendor.js" charset="utf-8"></script>
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
+
+    const list = document.querySelector('.pokemon-list');
+    const item = list.children[0];
+
+    for (var i = 0; i < 20; i++) {
+      const clone = item.cloneNode(true);
+      list.insertBefore(clone, item);
+    }
   </script>
 </body>
 </html>
