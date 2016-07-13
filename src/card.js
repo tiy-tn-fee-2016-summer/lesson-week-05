@@ -19,10 +19,24 @@ export default class PokeCard {
       </div>`;
 
     this.selectors = {
+      card: this.element.querySelector('.pokemon-card'),
       name: this.element.querySelector('.pokemon-card__name'),
       img: this.element.querySelector('.pic-frame__pic'),
       stats: this.element.querySelector('.poke-stats'),
+      overlay: this.element.querySelector('.pokemon-overlay'),
     };
+
+    this.setupListners();
+  }
+
+  setupListners() {
+    this.selectors.card.addEventListener('click', () => {
+      this.selectors.overlay.classList.add('pokemon-overlay--active');
+    });
+
+    this.selectors.overlay.addEventListener('click', () => {
+      this.selectors.overlay.classList.remove('pokemon-overlay--active');
+    });
   }
 
   getData() {
