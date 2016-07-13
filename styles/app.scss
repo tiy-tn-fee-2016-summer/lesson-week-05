@@ -17,9 +17,10 @@ body {
 ol {
   padding-left: 0;
   list-style: none;
-  counter-reset: ol 1;
+  counter-reset: ol;
 
   li {
+    counter-increment: ol;
     &::before {
       display: inline-block;
       margin-right: $gutter / 2;
