@@ -15,7 +15,7 @@
       </div>
     </nav>
 
-    <main class="app__main">
+     <main class="app__main" id="app">
       <div class="container">
         <div class="row">
           <div class="row__col row__col--1-4">
@@ -40,13 +40,7 @@
 
           <div class="row__col row__col--3-4">
             <h2>Lunch Options</h2>
-            <ol class="lunch-options">
-              <li class="lunch-option">
-                <span class="lunch-option__restaurant"></span>
-                suggested by:
-                <span class="lunch-option__name"></span>
-              </li>
-            </ol>
+            <ol class="lunch-options"></ol>
           </div>
         </div>
       </div>
@@ -66,7 +60,14 @@
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
+    var App = require('app');
+    var appEl = document.querySelector('#app');
 
+    var appyMcAppface = new App(appEl);
+    appyMcAppface.getOptions()
+      .then(function() {
+        appyMcAppface.render();
+      });
   </script>
 </body>
 
