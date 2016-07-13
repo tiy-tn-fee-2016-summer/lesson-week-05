@@ -1,16 +1,73 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Lesson Notes</title>
   <link rel="stylesheet" href="/app.css">
 </head>
+
 <body>
+  <div class="app">
+    <nav class="app__nav">
+      <div class="container">
+        <h2 class="top-nav-title">Where to go to Lunch?</h2>
+      </div>
+    </nav>
+
+    <main class="app__main">
+      <div class="container">
+        <div class="row">
+          <div class="row__col row__col--1-4">
+            <h2>Submit Your Own!</h2>
+            <form class="option-form">
+              <div class="form-field">
+                <label class="form-field__label">Name</label>
+                <input class="form-field__input form-field__input--name" type="text" placeholder="Name">
+              </div>
+
+              <div class="form-field">
+                <label class="form-field__label">Restaurant</label>
+                <input class="form-field__input form-field__input--restaurant" type="text" placeholder="Restaurant">
+              </div>
+
+              <div class="actions">
+                <button class="btn btn--clear" type="button">Clear</button>
+                <button class="btn btn--submit">Submit</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="row__col row__col--3-4">
+            <h2>Lunch Options</h2>
+            <ol class="lunch-options">
+              <li class="lunch-option">
+                <span class="lunch-option__restaurant"></span>
+                suggested by:
+                <span class="lunch-option__name"></span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app__footer">
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-content__copyright">Copyright <span class="copyright-year">2016</span></p>
+          <p class="footer-content__byline">By: <a href="http://ryantablada.com">Ryan Tablada</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <script src="/vendor.js" charset="utf-8"></script>
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
+
   </script>
 </body>
+
 </html>
