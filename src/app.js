@@ -1,4 +1,5 @@
 import getOptionData from 'get-option-data';
+import LunchOptionItem from 'lunch-option-item';
 
 export default class App {
   constructor(element) {
@@ -17,16 +18,11 @@ export default class App {
   // Take current information from data
   // to shove it into element
   render() {
-    this.data.forEach((option) => {
-      const listItem = document.createElement('li');
+    this.data.forEach((singleOptionData) => {
+      const optionItem = new LunchOptionItem(singleOptionData);
+      optionItem.render();
 
-      this.element.querySelector('.lunch-options').appendChild(listItem);
-      listItem.innerHTML = `
-        <span class="lunch-option__restaurant"></span>
-        suggested by:
-        <span class="lunch-option__name"></span>`;
-      listItem.querySelector('.lunch-option__restaurant').innerText = option.restaurant;
-      listItem.querySelector('.lunch-option__name').innerText = option.name;
+      this.element.querySelector('.lunch-options').appendChild(optionItem.element);
     });
   }
 }
