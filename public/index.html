@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Lesson Notes</title>
   <link rel="stylesheet" href="/app.css">
 </head>
+
 <body>
+  <div class="app">
+    <nav class="app__nav">
+      <div class="container">
+        <h2 class="top-nav-title">What questions do we have?</h2>
+      </div>
+    </nav>
+
+     <main class="app__main" id="app">
+      <div class="container">
+        <div class="row">
+          <div class="row__col row__col--1-1">
+            <h2>Questions? We Got it!</h2>
+            <form class="option-form">
+              <div class="form-field">
+                <label class="form-field__label">Question</label>
+                <input class="form-field__input form-field__input--question" type="text" placeholder="Question">
+              </div>
+
+              <div class="actions">
+                <button class="btn btn--clear" type="button">Clear</button>
+                <button class="btn btn--submit">Submit</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="row__col row__col--1-1">
+            <h2>Questions So Far</h2>
+            <ul class="question-list">
+              <li class="question-list__item">
+                <div class="question-card">
+                  <h3 class="question-card__checkbox">
+                    <i class="fa fa-fw fa-check"></i>
+                  </h3>
+                  <h3 class="question-card__title">How do we Javascript?</h3>
+                  <h3>
+                    <i class="fa fa-spin fa-trash"></i>
+                  </h3>
+                </div>
+              </li>
+              <li class="question-list__item">
+                <div class="question-card">
+                  <h3 class="question-card__checkbox">
+                    <i class="fa fa-fw fa-check"></i>
+                  </h3>
+                  <h3 class="question-card__title">How do we Javascript?</h3>
+                  <h3>
+                    <i class="fa fa-spin fa-trash"></i>
+                  </h3>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app__footer">
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-content__copyright">Copyright <span class="copyright-year">2016</span></p>
+          <p class="footer-content__byline">By: <a href="http://ryantablada.com">Ryan Tablada</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <script src="/vendor.js" charset="utf-8"></script>
   <script src="/app.js" charset="utf-8"></script>
@@ -13,4 +80,5 @@
   <script type="text/javascript">
   </script>
 </body>
+
 </html>
