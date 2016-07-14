@@ -78,6 +78,10 @@
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
+    var el = document.querySelector('#app');
+    var App = require('app');
+    var todos = new App(el);
+    todos.start();
   </script>
 </body>
 
