@@ -1,6 +1,7 @@
 class QuestionListItem {
-  constructor(data) {
+  constructor(data, list) {
     this.data = data;
+    this.list = list;
 
     this.element = document.createElement('li');
     this.element.classList.add('question-list__item');
@@ -13,6 +14,17 @@ class QuestionListItem {
         <i class="fa fa-spin fa-trash"></i>
       </h3>
     </div>`;
+    this.setupEvents();
+  }
+
+  setupEvents() {
+    // selectTheH3
+    this.element.querySelector('.question-card__delete').addEventListener('click', () => {
+      // Ask user if they are sure
+      if (confirm('Are you sure you want to delete this')) {
+        this.list.remove(this.data._id);
+      }
+    });
   }
 
   render() {
@@ -21,8 +33,9 @@ class QuestionListItem {
 }
 
 export default class QuestionList {
-  constructor(element) {
+  constructor(element, app) {
     this.element = element;
+    this.app = app;
     this.data = [];
   }
 
@@ -30,10 +43,14 @@ export default class QuestionList {
     this.data = data;
   }
 
-  render() {
-    // this.element.innerHTML = '';
+  remove(id) {
+    this.app.remove(id);
+  }
 
-    this.data.map((question) => new QuestionListItem(question))
+  render() {
+    this.element.innerHTML = '';
+
+    this.data.map((question) => new QuestionListItem(question, this))
       .forEach((questionItem) => {
         questionItem.render();
 

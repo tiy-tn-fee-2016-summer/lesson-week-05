@@ -6,7 +6,7 @@ export default class App {
     this.data = [];
 
     const qListEl = element.querySelector('.question-list');
-    this.questionList = new QuestionList(qListEl);
+    this.questionList = new QuestionList(qListEl, this);
   }
 
   start() {
@@ -22,6 +22,17 @@ export default class App {
       .then((data) => {
         this.data = data;
       });
+  }
+
+  remove(id) {
+    // Tell the server to update
+    fetch(`http://tiny-tn.herokuapp.com/collections/questions/${id}`, {
+      method: 'DELETE',
+    });
+
+    // Update our app data
+    this.data = this.data.filter((question) => question._id !== id);
+    this.render();
   }
 
   render() {
